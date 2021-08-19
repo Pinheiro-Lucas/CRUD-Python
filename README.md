@@ -3,5 +3,3 @@
 
 ## To-do:
 - Interface gráfica
-- [C] Checar se já existe
-- Max. X caracters

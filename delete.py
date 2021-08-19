@@ -1,4 +1,6 @@
-from read import *
+from read import read
+
+import json
 
 def delete():
     # Lê o banco

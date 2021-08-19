@@ -1,21 +1,14 @@
 # Importando o Sistema CRUD (organização)
-import json
-
-from create import *
-from read import *
-from update import *
-from delete import *
+from create import create
+from read import read
+from update import update
+from delete import delete
 
 # Biblioteca(s) necessária(s)
 import os
+import json
 
 def main():
-    # Armazena as informações em um json (bem simples mesmo)
-    if not os.path.isfile('db.json'):
-        with open('db.json', 'w') as db:
-            json.dump({}, db)
-            db.close()
-
     # Mostra o menu das opções
     print("""
     \t[C] Create
@@ -40,5 +33,13 @@ def main():
 
 # Execução padrão do main.py
 if __name__ == '__main__':
+    # Armazena as informações em um json (bem simples mesmo)
+    if not os.path.isfile('db.json'):
+        with open('db.json', 'w') as db:
+            json.dump({}, db)
+            db.close()
+    # Limpa o CMD (apenas estética)
+    os.system('cls')
+    # Roda o menu até o usuário escolher sair
     while True:
         main()

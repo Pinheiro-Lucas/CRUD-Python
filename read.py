@@ -1,4 +1,5 @@
 import json
+import os
 
 def read(printar=True):
     # Lê o banco de dados (nesse caso apenas um json)
@@ -17,3 +18,4 @@ def read(printar=True):
 
     # Pausa o Prompt para a visualização
     input('\n[R] Enter para voltar ao Menu!')
+    os.system('cls')
