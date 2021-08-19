@@ -2,7 +2,7 @@ from read import *
 
 def update():
     # Lê o banco
-    info = read(printar=False)
+    db = read(printar=False)
 
     # Força a escolha de uma das opções
     escolha = None
@@ -16,41 +16,43 @@ def update():
 
     # Mudar o nome de usuário
     if escolha == '1':
-        usuario = input('Insira o usuário antigo: ')
+        usuario = input('[U] Insira o usuário antigo: ')
         # Checa se o usuário realmente existe no banco
-        if usuario in info.keys():
-            novo_user = input('Insira o novo usuário: ')
-            confirmar = input('Para confirmar, insira a senha: ')
+        if usuario in db.keys():
+            novo_user = input('[U] Insira o novo usuário: ')
+            confirmar = input('[U] Para confirmar, insira a senha: ')
             # Checa se a senha bate com a senha atual do usuário
-            if confirmar == info.get(usuario):
+            if confirmar == db.get(usuario):
                 # Atualiza a senha do usuário
-                info.pop(usuario)
-                info.update({novo_user: confirmar})
+                db.pop(usuario)
+                db.update({novo_user: confirmar})
                 # Salva o arquivo
-                with open('db.json', 'w') as db:
-                    json.dump(info, db)
+                json.dump(db, open('db.json', 'w'))
+                # Mensagem de sucesso
+                print('[U] Usuário alterado!')
             else:
-                print('Senha incorreta!')
+                print('[U] Senha incorreta!')
         else:
-            print('Usuário não encontrado!')
+            print('[U] Usuário não encontrado!')
 
     # Mudar a senha
     elif escolha == '2':
-        usuario = input('Insira o usuário: ')
+        usuario = input('[U] Insira o usuário: ')
         # Checa se o usuário realmente existe no banco
-        if usuario in info.keys():
-            nova_senha = input('Insira a nova senha: ')
-            confirmar = input('Para confirmar, insira a senha antiga: ')
+        if usuario in db.keys():
+            nova_senha = input('[U] Insira a nova senha: ')
+            confirmar = input('[U] Para confirmar, insira a senha antiga: ')
             # Checa se a senha bate com a senha atual do usuário
-            if confirmar == info.get(usuario):
-                info.update({usuario: nova_senha})
+            if confirmar == db.get(usuario):
+                db.update({usuario: nova_senha})
                 # Salva o arquivo
-                with open('db.json', 'w') as db:
-                    json.dump(info, db)
+                json.dump(db, open('db.json', 'w'))
+                # Mensagem de sucesso
+                print('[U] Senha alterada!')
             else:
-                print('Senha incorreta!')
+                print('[U] Senha incorreta!')
         else:
-            print('Usuário não encontrado!')
+            print('[U] Usuário não encontrado!')
 
     # Se a opção for de saída
     elif escolha == 'E':

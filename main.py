@@ -12,9 +12,9 @@ import os
 def main():
     # Armazena as informações em um json (bem simples mesmo)
     if not os.path.isfile('db.json'):
-        with open('db.json', 'w') as arquivo:
-            json.dump({}, arquivo)
-            arquivo.close()
+        with open('db.json', 'w') as db:
+            json.dump({}, db)
+            db.close()
 
     # Mostra o menu das opções
     print("""
