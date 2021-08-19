@@ -30,6 +30,7 @@ def main():
     while opcao not in ('C', 'R', 'U', 'D', 'E'):
         opcao = input("Escolha uma das opções: ").upper()
 
+    os.system('cls')  # Caso esteja no CMD
     print('\n')  # Apenas por questões de toc
 
     # Resumindo 500 if else em duas linhas =)

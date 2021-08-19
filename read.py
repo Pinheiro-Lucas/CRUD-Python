@@ -9,4 +9,11 @@ def read(printar=True):
         return db
 
     # Printa as informações (usuários + senha)
-    print(db)  # Preciso melhorar a apresentação
+    print("{:<24} {:<24}".format('USUÁRIOS', 'SENHAS'))
+    print("{:<24} {:<24}".format('------------------------', '------------------------'))
+
+    for usuario, senha in db.items():
+        print("{:<24} {:<24}".format(usuario, senha))
+
+    # Pausa o Prompt para a visualização
+    input('\n[R] Enter para voltar ao Menu!')
